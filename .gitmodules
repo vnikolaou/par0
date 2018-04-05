@@ -1,0 +1,6 @@
+[submodule "ch0-1"]
+	path = ch0-1
+	url = https://github.com/vnikolaou/ch0-1.git
+[submodule "ch0-2"]
+	path = ch0-2
+	url = https://github.com/vnikolaou/ch0-2.git
