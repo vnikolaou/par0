@@ -1,0 +1,70 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>com.vag.maven</groupId>
+  <artifactId>par0</artifactId>
+  <version>0.0.1-SNAPSHOT</version>
+  <packaging>pom</packaging>
+  <name>par0</name>
+  <description>par0</description>
+  
+  <modules>
+  	<module>ch0-1</module>
+  	<module>ch0-2</module>
+  </modules>
+ 
+ 	<properties>
+ 		<registry.mode>few</registry.mode>
+ 		<java.compiler.version>1.8</java.compiler.version>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+	</properties>
+	
+	<build>
+		<pluginManagement>
+			<plugins>
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-compiler-plugin</artifactId>
+					<version>3.3</version>
+					<configuration>
+						<source>${java.compiler.version}</source>
+						<target>${java.compiler.version}</target>
+					</configuration>
+				</plugin>
+		
+				<plugin>
+					<groupId>org.codehaus.mojo</groupId>
+					<artifactId>exec-maven-plugin</artifactId>
+					<version>1.2.1</version>
+					<executions>
+						<execution>
+							<phase>integration-test</phase>
+							<goals>
+								<goal>java</goal>
+							</goals>
+						</execution>
+					</executions>
+					<configuration>
+						<arguments>
+							<argument>${registry.mode}</argument>
+						</arguments>					
+					</configuration>		
+				</plugin> 				
+			</plugins>		
+		</pluginManagement>
+	</build>
+	
+	<dependencyManagement>
+		<dependencies>
+			<dependency>
+				<groupId>org.apache.commons</groupId>
+				<artifactId>commons-math3</artifactId>
+				<version>3.2</version>
+			</dependency>
+			<dependency>
+				<groupId>com.vag.maven</groupId>
+				<artifactId>ch0-1</artifactId>
+				<version>0.0.1-SNAPSHOT</version>
+			</dependency>			
+		</dependencies>
+	</dependencyManagement>    
+</project>
